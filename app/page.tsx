@@ -7,6 +7,7 @@ import BlockCard from "@/components/BlockCard";
 import Narrator from "@/components/Narrator";
 import LandingOverlay from "@/components/LandingOverlay";
 import Tooltip from "@/components/Tooltip";
+import Glossary from "@/components/Glossary";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -27,6 +28,7 @@ export default function Home() {
   const [walkthroughStep, setWalkthroughStep] = useState(1);
   const [isStepActionCompleted, setIsStepActionCompleted] = useState(false);
   const [hasTampered, setHasTampered] = useState(false);
+  const [isGlossaryOpen, setIsGlossaryOpen] = useState(false);
 
   // Contextual Feedback State
   const [toast, setToast] = useState<{ message: string; submessage?: string; type: 'info' | 'warning' | 'success' } | null>(null);
@@ -398,6 +400,13 @@ export default function Home() {
             >
               {isGuidedMode ? 'Guided Mode' : 'Free Play'}
             </button>
+            <button 
+              onClick={() => setIsGlossaryOpen(true)}
+              className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-all hover:border-indigo-500/50"
+              title="Open Glossary"
+            >
+              📖
+            </button>
           </div>
         </div>
       </header>
@@ -607,6 +616,12 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* Glossary Modal */}
+      <Glossary 
+        isOpen={isGlossaryOpen} 
+        onClose={() => setIsGlossaryOpen(false)} 
+      />
 
       {/* Contextual ToastNotification */}
       {toast && (

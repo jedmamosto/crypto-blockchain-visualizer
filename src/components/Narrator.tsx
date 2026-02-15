@@ -13,30 +13,30 @@ export interface Step {
 export const STEPS: Step[] = [
   {
     id: 1,
-    title: "Build Your First Block",
-    beforePrompt: "Alice wants to send Bob 10 coins. But how do we make sure no one fakes this transaction? Type it in and mine your first block.",
-    afterPrompt: "You just created a block. It contains your data, a timestamp, and a unique fingerprint called a hash. The hash is generated from everything inside — change anything, and the fingerprint changes. That's what makes it secure.",
+    title: "The Digital Fingerprint",
+    beforePrompt: "Imagine Alice sends Bob 10 pesos. We need to lock this record in a 'Glass Box'. Type the transaction and click 'Mine' to create your first block.",
+    afterPrompt: "You just created a 'Fingerprint' (Hash) for this box. If you change even one comma in the data, the fingerprint changes entirely. This makes the data tamper-proof.",
     actionRequired: "mine_first_block"
   },
   {
     id: 2,
-    title: "Chain Them Together",
-    beforePrompt: "Let's add another record. Mine a second block to see how they connect.",
-    afterPrompt: "See how Block 2 remembers Block 1's fingerprint? That's the chain. Every block is linked to the one before it. This chain of fingerprints is what makes a blockchain a BLOCKchain.",
+    title: "Linking the Boxes",
+    beforePrompt: "Let's add a second record. Notice how the next block 'remembers' the fingerprint of the first one? Mine it to lock the link.",
+    afterPrompt: "Now they are 'Chained'. Because Block 2 knows Block 1's fingerprint, you can't change the past without breaking the future. This is the 'Chain' in Blockchain.",
     actionRequired: "mine_second_block"
   },
   {
     id: 3,
-    title: "Try to Cheat",
-    beforePrompt: "Now try something sneaky — edit Block 1's data. Change 'Alice pays Bob 10' to 'Alice pays Bob 1000'. Watch what happens.",
-    afterPrompt: "Notice the chain turned RED? Since you changed the data, the 'Fingerprint' (Hash) changed. But Block 2 still points to the OLD fingerprint. In a real blockchain, other computers would see this mismatch and reject your change instantly. That's how decentralization prevents cheating.",
+    title: "Caught in the Act",
+    beforePrompt: "Try to cheat! Go to Block 1, click 'Edit', and change the amount. Watch what happens to the whole chain.",
+    afterPrompt: "It turned RED! Because the fingerprint of Block 1 changed, Block 2 (which expects the old fingerprint) now sees a mismatch. This is exactly how the 'National Budget Blockchain' would catch corruption—once it's recorded, it can't be changed in secret.",
     actionRequired: "tamper_block_1"
   },
   {
     id: 4,
-    title: "Why Mining is Hard",
-    beforePrompt: "You've been mining at difficulty 2. Try difficulty 4 and mine a new block. Watch the 'Attempts' count. Notice how much harder the computer has to work?",
-    afterPrompt: "See the massive jump in attempts? Higher difficulty requires finding a hash with more leading zeros—like finding a needle in a much larger haystack. This 'Proof of Work' makes it computationally expensive to rewrite history, securing the entire network.",
+    title: "Why it's Secure",
+    beforePrompt: "Mining isn't just a button—it's hard work for the computer. Set difficulty to 4 and mine. Watch the 'Attempts' count explode.",
+    afterPrompt: "See how many guesses it took? This 'Proof of Work' makes it so expensive to change the past that it's practically impossible to cheat. This is why a Blockchain-based budget would be the most transparent system in the world.",
     actionRequired: "mine_high_difficulty"
   }
 ];
